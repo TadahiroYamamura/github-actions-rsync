@@ -14,6 +14,7 @@ echo "Host rsync_target"                   >> "$SSH_PATH/config"
 echo "  HostName $SSH_HOSTNAME"            >> "$SSH_PATH/config"
 echo "  User $SSH_USERNAME"                >> "$SSH_PATH/config"
 echo "  IdentityFile $SSH_PATH/deploy_key" >> "$SSH_PATH/config"
+echo "  Port ${SSH_PORT:-22}"              >> "$SSH_PATH/config"
 echo "  StrictHostKeyChecking no"          >> "$SSH_PATH/config"
 
 # Do deployment
