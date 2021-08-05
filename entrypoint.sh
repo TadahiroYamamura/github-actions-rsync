@@ -18,4 +18,4 @@ echo "  Port ${SSH_PORT:-22}"              >> "$SSH_PATH/config"
 echo "  StrictHostKeyChecking no"          >> "$SSH_PATH/config"
 
 # Do deployment
-sh -c "rsync ${INPUT_RSYNC_OPTIONS} ${GITHUB_WORKSPACE}${INPUT_RSYNC_SOURCE} rsync_target:${INPUT_RSYNC_TARGET}"
+sh -c "rsync -e 'ssh -F \"$SSH_PATH/config\"' ${INPUT_RSYNC_OPTIONS} ${GITHUB_WORKSPACE}${INPUT_RSYNC_SOURCE} rsync_target:${INPUT_RSYNC_TARGET}"
